@@ -1,0 +1,160 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing   : border-box;
+  -ms-box-sizing    : border-box;
+  box-sizing        : border-box;
+}
+*:focus {
+  outline: 0;
+}
+button {
+  opacity: 0.8;
+  z-index:99;
+}
+
+#main {
+  position: absolute;
+  top   : 0;
+  left  : 0;
+  right : 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding-right: 220px;
+}
+
+#editor { 
+  position: relative;
+  top   : 0;
+  left  : 0;
+  right : 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#run {
+  position: absolute;
+  top  : 5px;
+  right: 225px;
+}
+#stop {
+  position: absolute;
+  top  : 40px;
+  right: 225px;
+}
+#clear {
+  position: absolute;
+  top  : 75px;
+  right: 225px;
+}
+#link {
+  position: absolute;
+  top  : 110px;
+  right: 225px;
+}
+#panel {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 220px;
+  height: 100%;
+  padding: 5px 20px;
+  color: #ecf0f1;
+  background: #95a5a6;
+  font-family: Lato, sans-serif;
+}
+#panel h1 {
+  font-size: 26px;
+  font-weight: 700px;
+  margin: 5px 0 0;
+}
+#panel .desc {
+  font-size: 14px;
+  font-weight: 300;
+}
+.block {
+  margin-top: 25px;
+}
+h3 {
+  margin: 0;
+}
+h5 {
+  margin: 0 5px 15px 0;
+  padding: 0;
+  text-align: right;
+  font-weight: 300;
+  font-size: 10px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  margin: 5px 0;
+}
+ul li:before {
+  content: "- ";
+}
+ul li a {
+  color: #ecf0f1;
+}
+#canvas {
+  width: 180px;
+  height: 90px;
+  background: #2c3e50;
+}
+.btn {
+  width : 80px;
+  height: 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  transition: 0.25s;
+  color: white;
+  background-color: #bdc3c7;
+}
+.btn:hover, .btn:focus {
+  background-color: #cacfd2;
+}
+.btn:active {
+  background-color: #a1a6a9;
+}
+.btn-primary {
+  background-color: #1abc9c;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #2fe2bf;
+}
+.btn-primary:active {
+  background-color: #16a085;
+}
+.btn-danger {
+  background-color: #e74c3c;
+}
+.btn-danger:hover, .btn-danger:focus {
+  background-color: #ec7063;
+}
+.btn-danger:active {
+  background-color: #dc2d1b;
+}
+
+#keyboard {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width : 220px;
+  height: 80px;
+  border: solid 1px #2c3e50;
+  display: none;
+}
+
+@-webkit-keyframes blink {
+    5% { background-color: #a0d8ef; }
+  100% { background-color: #ffffff; }
+}

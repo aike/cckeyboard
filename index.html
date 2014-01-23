@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Coffee Collider Keyboard (CCKB)</title>
+
+	<meta property="og:title" content="Coffee Collider Keyboard (CCKB)"/>
+	<meta property="og:description" content="CoffeeCollider Keyboard is a realtime playing interface for @mohayonao's CoffeeCollider sound programming language."/>
+	<meta property="og:image" content="http://aikelab.net/cckeyboard/thumb.png"/>
+	<meta property="og:url" content="http://aikelab.net/cckeyboard/"/>
+	<meta property="og:type" content="product"/>
+	<meta property="og:site_name" content="aikelab"/>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.0.20130816/polymer.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script src="js/jquery.socialbutton-1.8.1.js"></script>
+	<script src="js/socialbutton.js"></script>
+
+	<script src="js/context.js"></script>
+	<script src="CoffeeCollider/extras/vendor/coffee-script.js"></script>
+	<script src="CoffeeCollider/build/coffee-collider.js"></script>
+
+	<script src="js/oscillator.js"></script>
+	<script src="js/oscpool.js"></script>
+	<script src="js/synth.js"></script>
+	<script src="js/control.js"></script>
+	<script src="js/webmidilink.js"></script>
+	<script src="js/WebMIDIAPI.js"></script>
+	<script src="js/midiinterface.js"></script>
+	<script src="js/keyboard.js"></script>
+
+	<script src="js/app.js"></script>
+
+	<link rel="import" href="webcomponents/controls.html">
+	<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+
+	<style>
+		body { background-color: #eee; }
+
+		#source {
+			position: absolute;
+			left: 60px;
+			top: 60px;
+			width: 690px;
+			height: 200px;
+			font-size: 14px;
+		}
+
+		#panel {
+			color: #bbb;
+			font-size: 10px;
+			position:relative;
+			background: linear-gradient(top, #444448, #111118);
+			background: -webkit-linear-gradient(top, #444448, #111118);
+			background: -moz-linear-gradient(top, #444448, #111118);
+			background: -ms-linear-gradient(top, #444448, #111118);
+			border-radius: 5px;
+			box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+			width: 720px;
+			height: 200px;
+			margin: 230px 0px 0px 40px;
+			padding: 0px;
+		}
+
+		#logo {
+			position: absolute;
+			top: 350px;
+			left: 95px;
+			font-size: 20px;
+			font-family: 'La Belle Aurore', cursive;
+			color: rgba(220,220,220,0.7);
+			z-index: 100;
+		}
+
+		#key   { position:absolute; left:  50px; top:110px; }
+
+		#txt1 { position:absolute; left: 450px; top: 20px; }
+		#mvol { position:absolute; left: 460px; top: 40px; }
+
+		#txt2   { position:absolute; left: 520px; top: 20px; }
+		#midi_device { position:absolute; left: 520px; top: 40px; width: 160px; height: 20px; fontSize:12px; }
+		#midi_signal { position:absolute; left: 595px; top: 21px; color: #222; fontSize:12px; }
+
+		#link {
+			position: absolute;
+			top: 60px;
+			left: 800px;
+			color: #222;
+			font-size: 12px;
+			background: rgba(220,220,220,0.3);
+			border-radius: 5px;
+			border: solid 1px #aaa;
+			box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+			width: 245px;
+			height: 410px;
+			padding: 5px 10px 0px 20px;
+		}
+		#link ul {
+			list-style: none;
+		}
+		#link .ex {
+			cursor: pointer;
+			color: #551A8B;
+			text-decoration: underline;
+		}
+		#link p {
+			font-size: 10px;
+		}
+
+		.block div { margin-right: 15px; float: right; font-size: 13px;}
+	</style>
+</head>
+<body>
+	<div class="block clearfix">
+		<div id="hatena"></div>
+		<div id="gplus1"></div>
+		<div id="facebook"></div>
+		<div id="twitter"></div>
+		<div id="about"><a href="readme.txt">README</a></div>
+	</div>
+	<h2>CoffeeCollider Keyboard (CCKB)</h2>
+	<div id="logo">CoffeeCollider Keyboard</div>
+	<textarea id="source" spellcheck="false">
+	</textarea>
+
+	<div id="panel">
+		<webaudio-keyboard id="key" width="650" height="90" min="36" keys="61" ></webaudio-keyboard>
+
+		<div id="txt1">Volume</div>
+		<webaudio-knob id="mvol" diameter="20"></webaudio-knob>
+
+		<div id="txt2">MIDI IN device</div>
+		<select id="midi_device"></select>
+		<div id="midi_signal">■</div>
+	</div>
+
+	<div id="link">
+	<h3>Examples</h3>
+		<ul>
+			<li class="ex" id="ex1">Example 1</li>
+			<li class="ex" id="ex2">Example 2</li>
+			<li class="ex" id="ex3">Example 3</li>
+			<li class="ex" id="ex4">Example 4</li>
+			<li class="ex" id="ex5">Example 5</li>
+			<li class="ex" id="ex6">Example 6</li>
+			<li class="ex" id="ex7">Example 7</li>
+		</ul>
+		<h3>Link</h3>
+		<ul>
+			<li><a href="http://github.com/aike/cckeyboard/" target="_blank">GitHub</a></li>
+			<li><a href="http://mohayonao.github.io/CoffeeCollider/" target="_blank">CoffeeCollider</a> <a href="https://github.com/mohayonao/CoffeeCollider/wiki/_pages" target="_blank">(doc)</a></li>
+			<li><a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blank">WebMIDIAPIShim</a></li>
+			<li><a href="https://github.com/g200kg/webaudio-controls" target="_blank">WebAudioControls</a></li>
+		</ul>
+		<h3>Credit</h3>
+		<p>Copyright(C) 2014 <a href="https://twitter.com/i0akaten" target="_blank">@i0akaten</a> and <a href="https://twitter.com/aike1000" target="_blank">@aike1000</a>. CoffeeCollider Keyboard program licensed under the Apache License Version 2.0.</p>
+	</div>
+
+</body>
+</html>

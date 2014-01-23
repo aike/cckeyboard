@@ -1,0 +1,54 @@
+{
+  "name": "coffee-collider",
+  "version": "0.2.6",
+  "description": "Sound Processing Language for Web Audio",
+  "keywords": [
+    "language",
+    "coffeescript",
+    "supercollider",
+    "music"
+  ],
+  "author": "Nao Yonamine <mohayonao@gmail.com>",
+  "homepage": "http://mohayonao.github.io/CoffeeCollider/",
+  "bugs": "https://github.com/mohayonao/CoffeeCollider/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mohayonao/CoffeeCollider.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/mohayonao/CoffeeCollider/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "./build/coffee-collider",
+  "bin": {
+    "coffeecollider": "./bin/coffeecollider.js"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "ws": "~0.4.31",
+    "speaker": "0.0.10",
+    "optparse": "~1.0.4"
+  },
+  "devDependencies": {
+    "amd-loader": "0.0.5",
+    "mocha": "~1.13.0",
+    "chai": "~1.8.1",
+    "dryice": "~0.4.10",
+    "istanbul": "~0.1.45",
+    "grunt": "~0.4.2",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-jshint": "~0.6.5",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-este-watch": "~0.1.13",
+    "coveralls": "~2.6.0"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  }
+}
